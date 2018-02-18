@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitAPI {
 
-    public static final String url = "http://52.47.123.57:5000/";
+    public static final String url = "http://52.47.123.57:5000";
     private static Retrofit retrofit = null;
 
     // Devuelve el cliente con la ruta del server

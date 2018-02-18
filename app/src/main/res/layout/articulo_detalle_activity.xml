@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <com.android.volley.toolbox.NetworkImageView
+    <ImageView
         android:id="@+id/detalle_imagen"
         android:layout_width="200dp"
         android:layout_height="200dp"

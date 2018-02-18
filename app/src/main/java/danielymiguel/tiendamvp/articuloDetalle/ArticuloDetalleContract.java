@@ -9,7 +9,7 @@ public interface ArticuloDetalleContract {
     }
 
     interface Presenter {
-        void cargaArticulo(int posicion);
-        void borrarArticulo(String codigo);
+        void cargaArticulo(int codigo);
+        void borrarArticulo(int codigo);
     }
 }

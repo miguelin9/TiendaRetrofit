@@ -1,5 +1,5 @@
 package danielymiguel.tiendamvp.insertarArticulos;
-/*
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -71,11 +71,10 @@ public class ArticuloPOSTActivity extends AppCompatActivity implements View.OnCl
         switch (view.getId()) {
             case R.id.fbutton:
                 if (!comprobarCampos()) {
-
                     insertarCategorias();
-                    presenter.insertarArticulo(tvCodigo.getText().toString(), tvNombre.getText().toString(),
-                            tvCategoria.getText().toString(), tvStock.getText().toString(), tvPrecio.getText().toString(),
-                            tvImagen.getText().toString(), tvDescripcion.getText().toString());
+                    presenter.insertarArticulo(new Articulo(Integer.parseInt(tvCodigo.getText().toString()), tvNombre.getText().toString(),
+                            tvCategoria.getText().toString(), Integer.parseInt(tvStock.getText().toString()), Float.parseFloat(tvPrecio.getText().toString()),
+                            tvImagen.getText().toString(), tvDescripcion.getText().toString()));
                     startActivity(new Intent(AppContexto.getContexto(), ArticulosActivity.class));
                     finish();
                 }
@@ -98,4 +97,3 @@ public class ArticuloPOSTActivity extends AppCompatActivity implements View.OnCl
         tvCategoria.setText(sCategoriaSpinner.getSelectedItem().toString());
     }
 }
-*/

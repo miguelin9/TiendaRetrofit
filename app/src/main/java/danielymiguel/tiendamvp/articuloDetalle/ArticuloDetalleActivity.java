@@ -1,18 +1,19 @@
 package danielymiguel.tiendamvp.articuloDetalle;
-/*
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.toolbox.NetworkImageView;
+import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,15 +22,12 @@ import danielymiguel.tiendamvp.R;
 import danielymiguel.tiendamvp.actualizarArticulo.ArticuloPUTActivity;
 import danielymiguel.tiendamvp.listaArticulos.ArticulosActivity;
 import danielymiguel.tiendamvp.modelos.Articulo;
-import danielymiguel.tiendamvp.modelos.api.MiSinglentonVolley;
-
 
 public class ArticuloDetalleActivity extends AppCompatActivity implements ArticuloDetalleContract.View, View.OnClickListener {
 
     private static final String ARTICULO = "ARTICULO";
     private ArticuloDetalleContract.Presenter presenter;
-    private int posicion;
-    private Articulo aux;
+    private int codigoArticulo;
 
     @BindView(R.id.detalle_categoria)
     TextView categoria;
@@ -56,26 +54,27 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
         setContentView(R.layout.articulo_detalle_activity);
         ButterKnife.bind(this);
 
-        posicion = getIntent().getExtras().getInt("POSICION");
+        Log.e("Errores", "Principio del onCreate en detalle");
+        codigoArticulo = getIntent().getExtras().getInt("CODIGO");
+        Log.e("Errores", "obtenido código artículo: " + codigoArticulo);
         presenter = new ArticuloDetallePresenter(this);
-        presenter.cargaArticulo(posicion);
+        presenter.cargaArticulo(codigoArticulo);
 
         actualizar.setOnClickListener(this);
         borrar.setOnClickListener(this);
-
+        Log.e("Errores", "Fin del onCreate en detalle");
     }
 
     @Override
     public void mostrarArticulo(Articulo articulo) {
         if (articulo != null) {
-            aux = articulo;
             categoria.append(articulo.getCategoria());
             codigo.append(String.valueOf(articulo.getCodigo()));
             descripcion.setText(articulo.getDescripcion());
             nombre.setText(articulo.getNombre());
             stock.append(String.valueOf(articulo.getStock()));
             precio.append(String.valueOf(articulo.getPrecio()) + " €");
-            imagen.setImageUrl(articulo.getFoto(), MiSinglentonVolley.getInstance(AppContexto.getContexto()).getImageLoader());
+            Glide.with(AppContexto.getContexto()).load(articulo.getFoto()).into(imagen);
         }
     }
 
@@ -84,7 +83,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
         switch (v.getId()) {
             case R.id.btn_actualizar:
                 Intent intent = new Intent(AppContexto.getContexto(),ArticuloPUTActivity.class);
-                intent.putExtra("ARTICULO", aux);
+//                intent.putExtra("ARTICULO", aux);
 //                Log.e("Errores","Código artículo: " + id);
                 startActivity(intent);
                 finish();
@@ -97,7 +96,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            presenter.borrarArticulo(String.valueOf(aux.getCodigo()));
+//                            presenter.borrarArticulo(aux.getCodigo());
                             startActivity(new Intent(AppContexto.getContexto(), ArticulosActivity.class));
                             finish();
                         }
@@ -113,4 +112,3 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
         }
     }
 }
-*/

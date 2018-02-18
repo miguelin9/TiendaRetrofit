@@ -43,7 +43,7 @@ public class ArticulosPresenter implements ArticulosContract.Presenter {
 
             @Override
             public void onFailure(Call<List<Articulo>> call, Throwable t) {
-                Toast.makeText(AppContexto.getContexto(), "ERROR EN EL SERVICIO", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AppContexto.getContexto(), "Error al obtener los datos", Toast.LENGTH_SHORT).show();
             }
         });
     }

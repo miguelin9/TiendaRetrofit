@@ -2,6 +2,8 @@ package danielymiguel.tiendamvp.insertarArticulos;
 
 import android.widget.Spinner;
 
+import danielymiguel.tiendamvp.modelos.Articulo;
+
 public interface ArticuloPOSTContract {
 
     // La vista tendrá un método que comprobará el articulo que hay
@@ -14,6 +16,6 @@ public interface ArticuloPOSTContract {
 
     // El presentador será el encargado de enviar la petición.
     interface Presenter {
-        void insertarArticulo (String codigo, String nombre, String categoria, String stock, String precio, String imagen, String descripcion);
+        void insertarArticulo (Articulo articulo);
     }
 }

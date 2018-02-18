@@ -16,11 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import danielymiguel.tiendamvp.AppContexto;
 import danielymiguel.tiendamvp.R;
+import danielymiguel.tiendamvp.articuloDetalle.ArticuloDetalleActivity;
 import danielymiguel.tiendamvp.modelos.Articulo;
 
 public class ArticulosActivity extends AppCompatActivity implements ArticulosContract.View{
 
-    public static final String POSICION = "POSICION";
+    public static final String CODIGO = "CODIGO";
 
     @BindView(R.id.lv_articulos)
     ListView listViewArticulos;
@@ -61,9 +62,10 @@ public class ArticulosActivity extends AppCompatActivity implements ArticulosCon
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //Se lanza la Activity de detalles de la noticia
-//                Intent intent = new Intent(AppContexto.getContexto(), ArticuloDetalleActivity.class);
-//                intent.putExtra(POSICION, i);
-//                startActivity(intent);
+                Log.e("Errores", "Creando itent");
+                Intent intent = new Intent(AppContexto.getContexto(), ArticuloDetalleActivity.class);
+                intent.putExtra(CODIGO, ((Articulo) articulosAdapter.getItem(i)).getCodigo());
+                startActivity(intent);
                 finish();
             }
         });

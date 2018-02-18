@@ -12,16 +12,19 @@ import retrofit2.http.Path;
 
 public interface ApiRest {
 
-    @POST("/articulos")
+    @POST("articulos")
     Call<Articulo> guardarArticulo(@Body Articulo articulo);
 
-    @GET("/articulos")
+    @GET("articulos")
     Call<List<Articulo>> obtenerArticulos();
 
-    @DELETE("/articulos/{codigo}")
+    @GET("articulos/{codigo}")
+    Call<List<Articulo>> obtenerArticulo(@Path("codigo") int codigo);
+
+    @DELETE("articulos/{codigo}")
     Call<Articulo> borrarArticulo(@Path("codigo") int codigo);
 
-    @PUT("/articulos/{codigo}")
+    @PUT("articulos/{codigo}")
     Call<Articulo> actualizarArticulo(@Path("codigo") int codigo);
 }
 
