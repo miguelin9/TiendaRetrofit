@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/inicioM"
+            android:icon="@drawable/home"
+            android:title="Inicio" />
+
+        <item
+            android:id="@+id/listaM"
+            android:icon="@drawable/lista"
+            android:title="Lista" />
+
+        <item
+            android:id="@+id/anadirM"
+            android:icon="@drawable/anadir"
+            android:title="Añadir" />
+
+        <!--<item-->
+            <!--android:id="@+id/inventarioM"-->
+            <!--android:icon="@drawable/inventario"-->
+            <!--android:title="Inventario" />-->
+
+        <!--<item-->
+            <!--android:id="@+id/categoriasM"-->
+            <!--android:icon="@drawable/categoria"-->
+            <!--android:title="Categorías" />-->
+
+    </group>
+
+</menu>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">TiendaMVP</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="informacion">Información</string>
+    <string name="informacionC">SERK INFORMÁTICA</string>
+    <string name="fnombre">Nombre</string>
+    <string name="fcodigo">Código</string>
+    <string name="fcategoria">Categoría</string>
+    <string name="fstock">Stock</string>
+    <string name="fdescripcion">Descripción</string>
+    <string name="farticulos">Añadir Artículo</string>
+    <string name="fanadir">Añadir</string>
+</resources>

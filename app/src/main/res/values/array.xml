@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categorias">
+        <item>Portatil</item>
+        <item>Television</item>
+        <item>Sobremesa</item>
+        <item>Smartphone</item>
+        <item>Consolas</item>
+        <item>Tablet</item>
+    </string-array>
+
+
+</resources>
