@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -16,7 +17,6 @@ import butterknife.ButterKnife;
 import danielymiguel.tiendamvp.AppContexto;
 import danielymiguel.tiendamvp.R;
 import danielymiguel.tiendamvp.modelos.Articulo;
-import danielymiguel.tiendamvp.modelos.api.MiSinglentonVolley;
 
 
 public class ArticulosAdapter extends BaseAdapter {
@@ -67,7 +67,7 @@ public class ArticulosAdapter extends BaseAdapter {
         viewHolder.nombre.setText(articulo.getNombre());
         viewHolder.stock.setText(String.valueOf(articulo.getStock()));
         viewHolder.codigo.setText(String.valueOf(articulo.getCodigo()));
-        viewHolder.imagen.setImageUrl(articulo.getFoto(), MiSinglentonVolley.getInstance(AppContexto.getContexto()).getImageLoader());
+        Glide.with(AppContexto.getContexto()).load(articulo.getFoto()).into(viewHolder.imagen);
 
         return view;
     }
@@ -80,7 +80,7 @@ public class ArticulosAdapter extends BaseAdapter {
         @BindView(R.id.tv_codigo)
         TextView codigo;
         @BindView(R.id.imagen)
-        NetworkImageView imagen;
+        ImageView imagen;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this, v);

@@ -1,5 +1,5 @@
 package danielymiguel.tiendamvp.insertarArticulos;
-
+/*
 
 import danielymiguel.tiendamvp.modelos.ArticulosRepository;
 
@@ -16,3 +16,4 @@ public class ArticuloPOSTPresenter implements ArticuloPOSTContract.Presenter {
         articulosRepository.postArticulo(codigo, nombre, categoria, stock, precio, imagen, descripcion);
     }
 }
+*/

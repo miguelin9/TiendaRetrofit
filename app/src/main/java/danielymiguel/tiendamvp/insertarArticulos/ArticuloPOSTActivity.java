@@ -1,5 +1,5 @@
 package danielymiguel.tiendamvp.insertarArticulos;
-
+/*
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,10 +20,7 @@ import danielymiguel.tiendamvp.R;
 import danielymiguel.tiendamvp.listaArticulos.ArticulosActivity;
 import danielymiguel.tiendamvp.modelos.Articulo;
 
-/**
- * Clase que gestiona la lógica
- * de inserción de articulos
- */
+
 
 public class ArticuloPOSTActivity extends AppCompatActivity implements View.OnClickListener, ArticuloPOSTContract.View {
 
@@ -101,3 +98,4 @@ public class ArticuloPOSTActivity extends AppCompatActivity implements View.OnCl
         tvCategoria.setText(sCategoriaSpinner.getSelectedItem().toString());
     }
 }
+*/

@@ -4,35 +4,46 @@ package danielymiguel.tiendamvp.listaArticulos;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.widget.Toast;
 
 import java.util.List;
 
+import danielymiguel.tiendamvp.AppContexto;
 import danielymiguel.tiendamvp.modelos.Articulo;
-import danielymiguel.tiendamvp.modelos.ArticulosDataSource;
-import danielymiguel.tiendamvp.modelos.ArticulosRepository;
+import danielymiguel.tiendamvp.modelos.api.ApiRest;
+import danielymiguel.tiendamvp.modelos.api.RetrofitAPI;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ArticulosPresenter implements ArticulosContract.Presenter {
-    private ArticulosContract.View noticiasView;
-    private ArticulosRepository articulosRepository;
-    //private ArticulosMock articulosRepository;
+    private ArticulosContract.View articulosView;
+    private ApiRest apiRest;
+    //private ArticulosMock apiRest;
 
     public ArticulosPresenter(ArticulosContract.View noticiasView) {
-        this.noticiasView = noticiasView;
-        this.articulosRepository = ArticulosRepository.getInstance();
-        //this.articulosRepository = new ArticulosMock();
+        this.articulosView = noticiasView;
+        this.apiRest = RetrofitAPI.getAPIRest();
     }
 
     @Override
     public void cargaDatos() {
-        articulosRepository.getArticulos(new ArticulosDataSource.CargaArticulosCallback() {
+        apiRest.obtenerArticulos().enqueue(new Callback<List<Articulo>>() {
             @Override
-            public void onArticulosCargadas(List<Articulo> articulos) {
-                noticiasView.mostrarArticulos(articulos);
+            public void onResponse(Call<List<Articulo>> call, Response<List<Articulo>> response) {
+                if (response.isSuccessful()){
+                    if (response.body().size() == 0){
+                        Toast.makeText(AppContexto.getContexto(), "Datos vacíos", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Paso la respuesta que es el array de artículos
+                        articulosView.mostrarArticulos(response.body());
+                    }
+                }
             }
 
             @Override
-            public void onArticulosError() {
-                noticiasView.mostrarError();
+            public void onFailure(Call<List<Articulo>> call, Throwable t) {
+                Toast.makeText(AppContexto.getContexto(), "ERROR EN EL SERVICIO", Toast.LENGTH_SHORT).show();
             }
         });
     }

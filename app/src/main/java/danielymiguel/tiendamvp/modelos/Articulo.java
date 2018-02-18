@@ -1,5 +1,8 @@
 package danielymiguel.tiendamvp.modelos;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,12 +10,27 @@ import java.io.Serializable;
  */
 
 public class Articulo implements Serializable {
+
+    @SerializedName("codigo")
+    @Expose
     private int codigo;
+    @SerializedName("nombre")
+    @Expose
     private String nombre;
+    @SerializedName("categoria")
+    @Expose
     private String categoria;
+    @SerializedName("precio")
+    @Expose
     private float precio;
+    @SerializedName("foto")
+    @Expose
     private String foto;
+    @SerializedName("stock")
+    @Expose
     private int stock;
+    @SerializedName("descripcion")
+    @Expose
     private String descripcion;
 
     public Articulo() {

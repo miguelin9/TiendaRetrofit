@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import danielymiguel.tiendamvp.listaArticulos.ArticulosActivity;
-import danielymiguel.tiendamvp.insertarArticulos.ArticuloPOSTActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -118,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.anadirM) {
             //Activity del menu anadirM
-            Intent intent = new Intent(AppContexto.getContexto(), ArticuloPOSTActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(AppContexto.getContexto(), ArticuloPOSTActivity.class);
+//            startActivity(intent);
 
         }
 //        else if (id == R.id.inventarioM) {

@@ -4,7 +4,7 @@
 
     <!-- Permiso de para poder comprobar si hay conexión a internet -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- Permiso de Internet para usar la API REST con volley -->
+    <!-- Permiso de Internet para usar la API REST con Retrofit -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
