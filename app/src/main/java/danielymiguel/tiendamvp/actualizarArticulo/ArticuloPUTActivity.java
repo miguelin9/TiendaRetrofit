@@ -88,7 +88,7 @@ public class ArticuloPUTActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.fbutton:
                 comprobarCampos();
-                presenter.actualizarArticulo(String.valueOf(articulo.getCodigo()), nombre, categoria, stock, precio, imagen, descripcion);
+                presenter.actualizarArticulo(new Articulo(articulo.getCodigo(), nombre, categoria, Integer.parseInt(stock), Float.parseFloat(precio), imagen, descripcion));
                 startActivity(new Intent(AppContexto.getContexto(), ArticulosActivity.class));
                 finish();
                 break;

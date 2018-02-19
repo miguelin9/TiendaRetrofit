@@ -25,7 +25,7 @@ public interface ApiRest {
     Call<Articulo> borrarArticulo(@Path("codigo") int codigo);
 
     @PUT("articulos/{codigo}")
-    Call<Articulo> actualizarArticulo(@Path("codigo") int codigo);
+    Call<Articulo> actualizarArticulo(@Path("codigo") int codigo, @Body Articulo articulo);
 }
 
 

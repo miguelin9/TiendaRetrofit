@@ -28,6 +28,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
     private static final String ARTICULO = "ARTICULO";
     private ArticuloDetalleContract.Presenter presenter;
     private int codigoArticulo;
+    private Articulo aux;
 
     @BindView(R.id.detalle_categoria)
     TextView categoria;
@@ -68,6 +69,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
     @Override
     public void mostrarArticulo(Articulo articulo) {
         if (articulo != null) {
+            aux = articulo;
             categoria.append(articulo.getCategoria());
             codigo.append(String.valueOf(articulo.getCodigo()));
             descripcion.setText(articulo.getDescripcion());
@@ -83,7 +85,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
         switch (v.getId()) {
             case R.id.btn_actualizar:
                 Intent intent = new Intent(AppContexto.getContexto(),ArticuloPUTActivity.class);
-//                intent.putExtra("ARTICULO", aux);
+                intent.putExtra("ARTICULO", aux);
 //                Log.e("Errores","Código artículo: " + id);
                 startActivity(intent);
                 finish();

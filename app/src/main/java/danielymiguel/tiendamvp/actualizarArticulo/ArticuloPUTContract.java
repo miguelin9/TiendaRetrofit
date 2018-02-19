@@ -17,7 +17,7 @@ public interface ArticuloPUTContract {
 
     // El presentador será el encargado de enviar la petición.
     interface Presenter {
-        void actualizarArticulo (String codigo, String nombre, String categoria, String stock, String precio, String imagen, String descripcion);
+        void actualizarArticulo (Articulo articulo);
     }
 
 }
