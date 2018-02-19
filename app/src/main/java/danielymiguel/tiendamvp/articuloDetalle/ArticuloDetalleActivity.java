@@ -96,7 +96,7 @@ public class ArticuloDetalleActivity extends AppCompatActivity implements Articu
                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-//                            presenter.borrarArticulo(aux.getCodigo());
+                            presenter.borrarArticulo(codigoArticulo);
                             startActivity(new Intent(AppContexto.getContexto(), ArticulosActivity.class));
                             finish();
                         }

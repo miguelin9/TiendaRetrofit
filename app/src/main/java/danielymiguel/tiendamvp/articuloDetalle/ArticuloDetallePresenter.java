@@ -43,6 +43,16 @@ public class ArticuloDetallePresenter implements ArticuloDetalleContract.Present
 
     @Override
     public void borrarArticulo(int codigo) {
-//        apiRest.borrarArticulo(codigo);
+        apiRest.borrarArticulo(codigo).enqueue(new Callback<Articulo>() {
+            @Override
+            public void onResponse(Call<Articulo> call, Response<Articulo> response) {
+                Toast.makeText(AppContexto.getContexto(), "Borrado correctamente", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Articulo> call, Throwable t) {
+                Toast.makeText(AppContexto.getContexto(), "Error al borrar", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
